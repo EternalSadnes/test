@@ -1,9 +1,12 @@
 package spring.learning.demo;
 
-public class Student {
-    private String name = "a";
-    private String surname = "b";
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+public class Student {
+    @Size(min = 3,message = "Э бля, имя введи, черт.")
+    @NotNull(message = "Э бля, поле заполни, черт.")
+    private String name;
     public Student() {
     }
 
@@ -15,19 +18,4 @@ public class Student {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 }

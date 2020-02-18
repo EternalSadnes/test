@@ -1,13 +1,21 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>Слышь че?</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .error {
+            color: red;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
 <form th:action="hi" th:object="${student}" method="post">
-    <input type="text" th:field="*{name}">
-    <input type="submit"/>
+    <input type="text" th:field="*{name}"> <p th:class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
+    <br>
+    <input type="submit" value="И че?"/>
 </form>
 </body>
 </html>
